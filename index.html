@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bubble-Calculator</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="calculator">
+       <div class="display-container">
+            <div class="scroll-zone left" onmouseenter="startScroll(-10)" onmouseleave="stopScroll()"></div>
+            <input type="text" id="display" disabled value="0">
+            <div class="scroll-zone right" onmouseenter="startScroll(10)" onmouseleave="stopScroll()"></div>
+        </div>
+        <div class="keys">
+            <button class="sign" onclick="clearDisplay(); animateButton(event)">C</button>
+            <button class="sign" onclick="appendOperator('/'); animateButton(event)">/</button>
+            <button class="sign" onclick="appendOperator('*'); animateButton(event)">×</button>
+            <button class="sign" onclick="deleteLast(); animateButton(event)">DEL</button>
+            
+            <button class="number" onclick="appendNumber('7'); animateButton(event)">7</button>
+            <button class="number" onclick="appendNumber('8'); animateButton(event)">8</button>
+            <button class="number" onclick="appendNumber('9'); animateButton(event)">9</button>
+            <button class="sign" onclick="appendOperator('-'); animateButton(event)">-</button>
+            
+            <button class="number" onclick="appendNumber('4'); animateButton(event)">4</button>
+            <button class="number" onclick="appendNumber('5'); animateButton(event)">5</button>
+            <button class="number" onclick="appendNumber('6'); animateButton(event)">6</button>
+            <button class="sign" onclick="appendOperator('+'); animateButton(event)">+</button>
+            
+            <button class="number" onclick="appendNumber('1'); animateButton(event)">1</button>
+            <button class="number" onclick="appendNumber('2'); animateButton(event)">2</button>
+            <button class="number" onclick="appendNumber('3'); animateButton(event)">3</button>
+            <button class="sign" onclick="calculate(); animateButton(event)">=</button>
+            
+            <button class="number zero" onclick="appendNumber('0'); animateButton(event)">0</button>
+            <button class="number" onclick="appendNumber('.'); animateButton(event)">.</button>
+        </div>
+    </div>
+    <script src="index.js"></script>
+</body>
+</html>
+

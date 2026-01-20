@@ -1,0 +1,142 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f4f4f4;
+}
+
+.calculator {
+    background-color: #000080; /* Navy Blue Body */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 10px 20px rgba(0,0,0,0.3);
+}
+
+#display {
+    width: 100%;
+    height: 50px;
+    background: #fff;
+    border: none;
+    text-align: right;
+    margin-bottom: 20px;
+    padding: 10px;
+    font-size: 24px;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+.keys {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+}
+
+button {
+    height: 50px;
+    width: 50px;
+    border: none;
+    border-radius: 5px;
+    font-size: 18px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+/* Numeric Keys: Grey Buttons, White Text */
+.number {
+    background-color: #808080; /* Grey */
+    color: #FFFFFF; /* White numbering */
+}
+
+/* Signs: Dark Yellow */
+.sign {
+    background-color: #CC9900; /* Dark Yellow */
+    color: #000;
+}
+
+.zero {
+    grid-column: span 2;
+    width: 110px;
+}
+
+#display {
+    width: 100%;
+    height: 60px; /* Slightly taller for easier touch/scroll */
+    background: #fff;
+    border: none;
+    text-align: right;
+    margin-bottom: 20px;
+    padding: 10px;
+    font-size: 28px;
+    border-radius: 5px;
+    box-sizing: border-box;
+
+    /* KEY SCROLLING FEATURES */
+    overflow-x: auto;         /* Shows scrollbar if number is too long */
+    white-space: nowrap;      /* Prevents number from jumping to a new line */
+    direction: ltr;           /* Keeps standard math reading direction */
+    scrollbar-width: thin;    /* Makes the scrollbar look professional (2026 standard) */
+}
+
+/* Optional: Make the scrollbar look better on modern browsers */
+#display::-webkit-scrollbar {
+    height: 4px;
+}
+#display::-webkit-scrollbar-thumb {
+    background: #808080; /* Matches your Grey buttons */
+    border-radius: 10px;
+}
+
+.display-container {
+    position: relative; /* Needed to anchor the zones */
+    width: 100%;
+}
+
+.scroll-zone {
+    position: absolute;
+    top: 0;
+    width: 30px; /* How wide the hover area is */
+    height: 60px; /* Match your display height */
+    z-index: 5;
+    cursor: pointer;
+    /* background: rgba(255, 0, 0, 0.1); // Uncomment to see where they are while testing */
+}
+
+.left { left: 0; }
+.right { right: 0; }
+
+#display {
+    width: 100%;
+    /* Keep other styles same, but ensure no scrollbar is visible */
+    overflow-x: hidden; 
+}
+
+
+
+
+
+/* The "Bubble" Animation */
+@keyframes bubble-pop {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.2); /* Expand like a bubble */
+        filter: brightness(1.2); /* Make it glow slightly */
+    }
+    100% {
+        transform: scale(1); /* Return to normal size */
+    }
+}
+
+/* This class will be added briefly when clicked */
+.bubble-effect {
+    animation: bubble-pop 0.3s ease-out;
+    z-index: 10; /* Ensure it pops over other buttons */
+}
+
+/* Optional: Make buttons look more rounded like bubbles */
+button {
+    border-radius: 50% !important; /* Makes them circular like bubbles */
+    transition: transform 0.1s ease;
+}
